@@ -88,7 +88,7 @@ p.s. 该示例只支持真机，不支持模拟器。编译完成后，即可运
 
 2. 导入Tracker 人脸捕捉的SDK包和StickerManager。
 
-  ![](images/tracker.jpg)
+  ![](images/Tracker.jpg)
 
   ![](images/StickerManager.jpg)
 
