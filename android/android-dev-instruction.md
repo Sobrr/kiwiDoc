@@ -11,12 +11,11 @@ kiwi人脸跟踪SDK，主要功能包括：
 
 ## 流程图
 
-  ![](images/AndroidInputTexture.png)
-  
+![directories](images/AndroidInputTexture.png)
+
 这个文档将演示如何利用我们的demo快速入门，并详细描述具体集成步骤。
 
 ## Demo快速入门
-
 #### 准备环境
 
 开发软件
@@ -31,7 +30,7 @@ kiwi人脸跟踪SDK，主要功能包括：
 
 #### 编译代码示例
 1. 在Android Studio里选择 Import project (Eclipse ADT, Gradle, etc.)
-  ![](images/android-studio.png)
+   ![](images/android-studio.png)
 
 2. 利用Android studio的导入功能导入以下项目
   ```
@@ -55,37 +54,40 @@ kiwi人脸跟踪SDK，主要功能包括：
   从给的sdk文件夹下获取kw-filter.aar与 kw-tracker.aar 两个aar包
 
 #### 第二步：准备环境
-  * Android SDK API Level> = 15
-  * Android studio 2.0或以上版本
-  * 真机设备调试
+* Android SDK API Level> = 15
+* Android studio 2.0或以上版本
+    * 真机设备调试
 
 #### 第三步：引入sdk中的相关包
 
 具体如下：
-  1. 首先在项目中新建一个libs包，然后再将步骤一获取的aar包放入其中
-![](images/libs-package.png)
-  2. 在自己项目的build.gradle中引入aar包
+1.   首先在项目中新建一个libs包，然后再将步骤一获取的aar包放入其中
+     ![](images/libs-package.png)
 
-    ```
-    repositories {
-      flatDir {
-          dirs '../libs'
-      }
-    }
+2.   在自己项目的build.gradle中引入aar包
 
-    dependencies {
-      compile(name: 'kw-filter', ext: 'aar')
-      compile(name: 'kw-tracker', ext: 'aar')
-    }
-    ```
+              ```
+              repositories {
+                flatDir {
+                    dirs '../libs'
+                }
+              }
+             
+              dependencies {
+                compile(name: 'kw-filter', ext: 'aar')
+                compile(name: 'kw-tracker', ext: 'aar')
+              }
+               ```
 
-  3. 将sdk文件夹中的assets文件复制到自己项目的相应文件夹下
-  ![](images/assets.png)
+3.   将sdk文件夹中的assets文件复制到自己项目的相应文件夹下
 
-  4. 将sdk文件夹中的assets文件复制到自己项目的相应文件夹下
-  ![](images/jniLibs.png)
+     ![](images/assets.png)
 
-  5. 为保证sdk正常运行，程序部署时需在AndroidManisfest.xml文件中加入以下许可：
+4.   将sdk文件夹中的jniLibs文件复制到自己项目的相应文件夹下
+
+     ![](images/jniLibs.png)
+
+5.   为保证sdk正常运行，程序部署时需在AndroidManisfest.xml文件中加入以下许可：
 
   ```
   <uses-permission android:name="android.permission.INTERNET" />
@@ -131,34 +133,34 @@ kiwi人脸跟踪SDK，主要功能包括：
 
   StickerConfig.json
 
-  参数名称 | 意义
-  --------|----------
-	name | 贴纸的名称（UI显示和贴纸的识别）
-	dir | 贴纸存放路径文件夹名称
-	category | 类别（贴纸类型的区分或分组）
-	thumb | 贴纸图标的文件名（与声音在同一文件夹下）
-	voiced | true（有声音）false（没有声音播放）
-	downloaded | 是否已经下载。如果没有下载，程序则可以去下载到指定目录后更改该状态
+| 参数名称       | 意义                                |
+| ---------- | --------------------------------- |
+| name       | 贴纸的名称（UI显示和贴纸的识别）                 |
+| dir        | 贴纸存放路径文件夹名称                       |
+| category   | 类别（贴纸类型的区分或分组）                    |
+| thumb      | 贴纸图标的文件名（与声音在同一文件夹下）              |
+| voiced     | true（有声音）false（没有声音播放）            |
+| downloaded | 是否已经下载。如果没有下载，程序则可以去下载到指定目录后更改该状态 |
 
   config.json
 
-  参数名称 | 意义
-  --------|----------
-	type | 贴纸显示的位置类型（脸部、全屏）
-	facePos | 贴纸在脸部的位置
-	scaleWidthOffset | 贴纸宽度缩放系数
-	scaleHeightOffset | 贴纸高度缩放系数
-	scaleXOffset | 贴纸在脸部水平方向偏移系数
-	scaleYOffset | 贴纸在脸部垂直方向偏移系数
-	alignPos | 边缘item参数
-	alignX | 边缘水平方向偏移系数
-	alignY | 边缘垂直方向系数
-	frameFolder | 贴纸资源目录（包括一组图片序列帧）
-	frameNum |  帧数（一组序列帧组成一个动画效果）
-	frameDuration | 每帧的间隔（秒）
-	frameWidth | 图片的宽
-	frameHeight | 图片的高
-	trigerType | 触发条件，默认0，始终显示
+| 参数名称              | 意义                |
+| ----------------- | ----------------- |
+| type              | 贴纸显示的位置类型（脸部、全屏）  |
+| facePos           | 贴纸在脸部的位置          |
+| scaleWidthOffset  | 贴纸宽度缩放系数          |
+| scaleHeightOffset | 贴纸高度缩放系数          |
+| scaleXOffset      | 贴纸在脸部水平方向偏移系数     |
+| scaleYOffset      | 贴纸在脸部垂直方向偏移系数     |
+| alignPos          | 边缘item参数          |
+| alignX            | 边缘水平方向偏移系数        |
+| alignY            | 边缘垂直方向系数          |
+| frameFolder       | 贴纸资源目录（包括一组图片序列帧） |
+| frameNum          | 帧数（一组序列帧组成一个动画效果） |
+| frameDuration     | 每帧的间隔（秒）          |
+| frameWidth        | 图片的宽              |
+| frameHeight       | 图片的高              |
+| trigerType        | 触发条件，默认0，始终显示     |
 
   编写config.json文件可使用我司提供的工具 https://apps.kiwiapp.mobi/sticker.html 进行调试生成。
 
@@ -168,12 +170,12 @@ kiwi人脸跟踪SDK，主要功能包括：
 
   1. 在Activity中进行初始化
 
-  ```java
+```java
   // 在Activity中初始化kwTrackerWrapper
   // 传入Android context和Camera type(表示是前置摄像头还是后置摄像头), e.g Camera.CameraInfo.CAMERA_FACING_FRONT
   kwTrackerWrapper = new KwTrackerWrapper(this, mCamera.mCurrentCameraId);
   kwTrackerWrapper.onCreate(this);
-  ```
+```
 
   2. 在Activity布局中引入自定义控件
 
@@ -186,7 +188,7 @@ kiwi人脸跟踪SDK，主要功能包括：
 
   3. 调用KwTrackerManager的方法
 
-  ```java
+```java
   public OnViewEventListener initUIEventListener(final UIClickListener uiClickListener) {
     OnViewEventListener eventListener = new OnViewEventListener() {
         @Override
@@ -254,7 +256,7 @@ kiwi人脸跟踪SDK，主要功能包括：
         public void onFaceBeautyLevel(float level) {
             getKwTrackerManager().adjustBeauty(level);
         }    
-  ```
+```
 
 
 
@@ -263,7 +265,7 @@ kiwi人脸跟踪SDK，主要功能包括：
 
 
 - 请开发者在build.gradle定义支持的CPU架构
-在Module的buid.gradle文件中添加依赖和属性配置:
+  在Module的buid.gradle文件中添加依赖和属性配置:
 
     ```
     android {
@@ -275,3 +277,9 @@ kiwi人脸跟踪SDK，主要功能包括：
               }
           }
     ```
+
+- 请避免混淆Kiwi，在Proguard混淆文件中增加以下配置：
+
+      -dontwarn com.kiwi.**
+      -keep public class com.kiwi.**{*;}
+  ​
